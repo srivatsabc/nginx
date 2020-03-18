@@ -21,7 +21,7 @@ pipeline {
               doGenerateSubmoduleConfigurations: false,
               extensions: [[$class: 'SparseCheckoutPaths',  sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path:'nginx/']]]                        ],
               submoduleCfg: [],
-              userRemoteConfigs: [[credentialsId: 'srivatsabc_git_login', url: 'https://github.com/srivatsabc/process-api-repository.git']]])
+              userRemoteConfigs: [[credentialsId: 'srivatsabc_git_login', url: 'https://github.com/srivatsabc/nginx.git']]])
 
             sh "ls -lat"
           }
