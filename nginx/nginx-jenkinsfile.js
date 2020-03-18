@@ -39,7 +39,13 @@ pipeline {
           }
       }
 
-      stage('Delete existing deployment') {
+     stage('Create namespace') {
+          steps {
+            sh "kubectl create namespace test"
+          }
+      }
+
+     stage('Delete existing deployment') {
        steps {
          script{
            status = sh(returnStatus: true, script: "kubectl delete deployment $k8s_app --namespace=$k8s_namespace")
@@ -59,11 +65,11 @@ pipeline {
                      }
                    }
                  }
+               }
              }
            }
          }
        }
-     }
 
      stage('Kubernetes deployment') {
       steps {
